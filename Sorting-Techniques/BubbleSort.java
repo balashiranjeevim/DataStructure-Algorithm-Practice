@@ -1,0 +1,38 @@
+/*
+
+Implement the Bubble sort.
+
+*/
+
+public class BubbleSort {
+    public static void main(String[] args) {
+
+        int[] array = { 10, 30, 90, 40, 60, 80, 20, 100, 70, 50 };
+        
+
+
+        System.out.println("Before :");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            boolean swapped = false;
+            for (int j = 0; j < array.length - (i + 1); j++) {
+                if (array[j] > array[j + 1]) {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                    swapped = true;
+                }
+            }
+            if(!swapped) break;
+        }
+        System.out.println("\nAfter :");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+
+    }
+
+}
