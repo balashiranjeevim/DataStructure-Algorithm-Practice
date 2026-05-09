@@ -1,3 +1,9 @@
+/*
+
+Count the Number of digits for the Given Integer.
+
+*/
+
 class CountDigit {
     public static void main(String[] args) {
         int n = 100;

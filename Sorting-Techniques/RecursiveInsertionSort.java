@@ -1,6 +1,6 @@
 /*
 
-Implement Recursive Insertion Sort.
+Implement Insertion Sort using Recursion.
 
 */
 

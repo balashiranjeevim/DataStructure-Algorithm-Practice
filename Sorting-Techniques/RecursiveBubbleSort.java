@@ -1,6 +1,6 @@
 /* 
 
-Implement the Recursive Bubble Sort.
+Implement the Bubble Sort using Recursion.
 
 */
 
