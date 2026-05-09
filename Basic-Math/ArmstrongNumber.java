@@ -1,3 +1,9 @@
+/*
+
+Find Given Number is Armstrong Number. Return "true" or "false".
+
+*/
+
 import java.util.Scanner;
 
 public class ArmstrongNumber {
