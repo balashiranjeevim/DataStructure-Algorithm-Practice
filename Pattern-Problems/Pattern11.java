@@ -12,7 +12,7 @@ print the Pattern
 
 import java.util.Scanner;
 
-public class Patttern11 {
+public class Pattern11 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int layer = input.nextInt();
