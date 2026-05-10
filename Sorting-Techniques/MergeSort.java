@@ -4,8 +4,6 @@ Implement the Merge Sort.
 
 */
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class MergeSort {
     public static void main(String[] args) {
