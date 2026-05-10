@@ -18,12 +18,12 @@ public class Pattern13 {
         Scanner input = new Scanner(System.in);
         int layer = input.nextInt();
         int last_num = 0;
-        int temp =0;
+        int temp = 0;
 
-        for (int i = 1; i <= 5; i++) {
-            for (int j = last_num + 1; j < last_num +i+1; j++) {
+        for (int i = 1; i <= layer; i++) {
+            for (int j = last_num + 1; j < last_num + i + 1; j++) {
                 System.out.print(j + " ");
-                temp =j;
+                temp = j;
             }
             last_num = temp;
             System.err.println("");

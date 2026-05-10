@@ -18,7 +18,6 @@ class Pattern7{
 
         int layer = input.nextInt();
         int n = layer;
-        int maxCh = (layer*2)-1;
         String star = "*";
         for(int i=1; i<=layer; i++){
             for(int j=1; j<n; j++ ){

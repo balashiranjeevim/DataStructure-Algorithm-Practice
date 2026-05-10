@@ -21,7 +21,6 @@ public class Pattern10 {
         Scanner input = new Scanner(System.in);
         int layer = input.nextInt();
         int maxCh = (layer + 1) / 2;
-        int n = maxCh;
         for (int i = 1; i <= layer; i++) {
             if (i > maxCh) {
                 for (int j = i; j < maxCh * 2; j++) {
