@@ -6,7 +6,7 @@ Given an array arr[], check whether it is sorted in non-decreasing order. Return
 
 package Arrays.Easy;
 
-import java.util.Scanner;
+
 
 public class SortedArrayCheck {
 
