@@ -42,24 +42,18 @@ public class MoveZero {
 
     public static void moveZero_method(int[] array){
 
-        int pointer1 = array.length-1;
-        int pointer2 = array.length-2;
+        int insertPos = 0;
 
-        while(pointer1 >=0 && pointer2 >= 0){
-            if(array[pointer1] ==0){
-                pointer1--;
-            }   
-            while(array[pointer2] != 0){
-                pointer2--;
+        for(int i=0; i<=array.length-1; i++){
+            if(array[i] != 0){
+                int temp = array[i];
+                array[i] = array[insertPos];
+                array[insertPos] = temp;
+
+                insertPos++;
             }
-            for(int i= pointer2; i<pointer1; i++){
-                int temp = array[i+1];
-                array[i+1] = array[i];
-                array[i] = temp;
-            }
-            pointer1--;
-            pointer2--;
-            
         }
+
+        
     }
 }
