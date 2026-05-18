@@ -33,59 +33,69 @@ package Arrays.Easy;
 import java.util.*;
 
 public class UnionOfSortedArrays {
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
+
         int[] nums1 = {3, 4, 6, 7, 9, 9};
         int[] nums2 = {1, 5, 7, 8, 8};
 
-        int  num1_pointer = 0;
-        int num2_pointer =0;
+        int num1_pointer = 0;
+        int num2_pointer = 0;
 
         System.out.println(unionArray(nums1, nums2, num1_pointer, num2_pointer));
     }
 
-    public static String unionArray(int[] num1, int[] num2, int num1_pointer, int num2_pointer) {
+    public static ArrayList<Integer> unionArray(int[] num1, int[] num2,
+                                                 int num1_pointer, int num2_pointer) {
 
         ArrayList<Integer> list = new ArrayList<>();
 
         while (num1_pointer < num1.length && num2_pointer < num2.length) {
-            
-            
-            if (num1[num1_pointer] == num2[num2_pointer]) {
-                list.add(num1[num1_pointer]);
-                num1_pointer++;
-                num2_pointer++;
 
-            }else if (num1[num1_pointer] < num2[num2_pointer]) {
-                list.add(num1[num1_pointer]);
-                num1_pointer++;
-                while(num1_pointer > 0 && num1_pointer < num1.length && num1[num1_pointer] == num1[num1_pointer-1]){
-                    num1_pointer++;
+            if (num1[num1_pointer] <= num2[num2_pointer]) {
+
+                if (list.isEmpty() ||
+                    list.get(list.size() - 1) != num1[num1_pointer]) {
+
+                    list.add(num1[num1_pointer]);
                 }
+
+                num1_pointer++;
+
             } else {
-                list.add(num2[num2_pointer]);
+
+                if (list.isEmpty() ||
+                    list.get(list.size() - 1) != num2[num2_pointer]) {
+
+                    list.add(num2[num2_pointer]);
+                }
+
                 num2_pointer++;
-                while(num2_pointer > 0 && num2_pointer < num2.length && num2[num2_pointer] == num2[num2_pointer-1]){
-                    num2_pointer++;
-                }
-            }
-        }
-        if (num1_pointer < num1.length - 1) {
-            for (int i = num1_pointer; i < num1.length; i++) {
-                if(num1[i] != num1[i-1]){
-                    list.add(num1[i]);
-                }
-                
-            }
-        }
-        if (num2_pointer < num2.length - 1) {
-            for (int i = num2_pointer; i < num2.length; i++) {
-                if(num2[i] != num2[i-1]){
-                    list.add(num2[i]);
-                }
             }
         }
 
-        return list.toString();
+        while (num1_pointer < num1.length) {
+
+            if (list.isEmpty() ||
+                list.get(list.size() - 1) != num1[num1_pointer]) {
+
+                list.add(num1[num1_pointer]);
+            }
+
+            num1_pointer++;
+        }
+
+        while (num2_pointer < num2.length) {
+
+            if (list.isEmpty() ||
+                list.get(list.size() - 1) != num2[num2_pointer]) {
+
+                list.add(num2[num2_pointer]);
+            }
+
+            num2_pointer++;
+        }
+
+        return list;
     }
-
 }
