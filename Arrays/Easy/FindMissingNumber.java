@@ -30,8 +30,6 @@ All the numbers of nums are unique.
 
 package Arrays.Easy;
 
-import java.util.*;
-
 public class FindMissingNumber {
     public static void main(String[] args) {
 
