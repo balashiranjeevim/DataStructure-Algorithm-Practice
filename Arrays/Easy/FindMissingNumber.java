@@ -41,7 +41,7 @@ public class FindMissingNumber {
 
     public static int find_missing_number(int n, int[] array) {
 
-        //// we create a value of sum of n real number using the formula
+        // we create a value of sum of n real number using the formula
         int expectedValue = n * (n + 1) / 2;
 
         // Then we are subtracting the value with array value, hence we find the missing
