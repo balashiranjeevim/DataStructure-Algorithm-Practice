@@ -29,28 +29,26 @@ nums[i] is either 0 or 1.
 
 */
 
-
-
 package Arrays.Easy;
 
-public class MaximumConsecutiveOnes{
+public class MaximumConsecutiveOnes {
     public static void main(String[] args) {
-        int[] array = {1, 1, 0, 0, 1, 1, 1, 0};
+        int[] array = { 1, 1, 0, 0, 1, 1, 1, 0 };
 
         System.out.println(maximumConsecutiveOnes_Method(array));
     }
 
-    public static int maximumConsecutiveOnes_Method(int[] array){
+    public static int maximumConsecutiveOnes_Method(int[] array) {
         int count = 0;
         int maxFrequency = 0;
-        for(int i =0; i<array.length; i++){
-            if(array[i] == 1){
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == 1) {
                 count++;
-                if(maxFrequency<count){
+                if (maxFrequency < count) {
                     maxFrequency = count;
                 }
-            }else{
-                count=0;
+            } else {
+                count = 0;
             }
         }
         return maxFrequency;
