@@ -33,7 +33,7 @@ public class FindSingleNumber {
 
     public static void main(String[] args) {
 
-        int[] nums = { 1, 2, 2, 4, 3, 1, 4 };
+        int[] nums = { 1, 2, 2, 4, 3, 3, 1, 4 , 6};
 
         Arrays.sort(nums);
 
@@ -41,24 +41,11 @@ public class FindSingleNumber {
     }
 
     public static int findingSingleNumber_method(int[] array) {
+        
         int number = 0;
-        int i = 0;
 
-        while (i < array.length) {
-            if (i == 0) {
-                number = array[0];
-                i++;
-            } else if (i == array.length - 1) {
-                if (array[i] != array[i - 1]) {
-                    number = array[i];
-                }
-                i++;
-            } else if (array[i] == array[i - 1] || array[i] == array[i + 1]) {
-                i++;
-            } else {
-                number = array[i];
-                i++;
-            }
+        for(int num : array){
+            number ^= num;
         }
 
         return number;
