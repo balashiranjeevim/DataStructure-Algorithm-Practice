@@ -11,21 +11,20 @@ public class TwoSum {
         System.out.println(Arrays.toString(twoSum(nums, target)));
     }
     public static int[] twoSum(int[] nums, int target) {
-        int[] result = new int[2];
-        int pos = 0;
+
         HashMap<Integer, Integer> map = new HashMap<>();
 
         for(int i =0; i<nums.length; i++){
-            map.put(target-nums[i], i);
-        }
-        for(int i=0; i<nums.length; i++){
-            
-            if(map.containsKey(nums[i]) && pos<2 && target/nums[i] != 2){
-                result[pos] = i;
-                pos++;
+            int complement = target- nums[i];
+
+            if(map.containsKey(complement)){
+                return new int[] {map.get(complement), i};
             }
+            map.put(nums[i], i);
         }
-        return result;
+
+        return new int[] {};
+        
     }
 
 }
