@@ -41,32 +41,36 @@ public class SortanArrayof012s {
 
     }
 
-    public static void sort_Zero_One_Twos(int[] array) {
+    public static void sort_Zero_One_Twos(int[] nums) {
 
-        int leftPointer = 0;
-        int rightPointer = array.length - 1;
-        int currentPointer = (array.length / 2) -1;
+        int low = 0;
+        int mid = 0;
+        int high = nums.length - 1;
 
-        while (currentPointer >= leftPointer && currentPointer <= rightPointer) {
-            while (array[leftPointer] == 0) {
-                leftPointer++;
-            }
-            while (array[rightPointer] == 2) {
-                rightPointer--;
-            }
-            if (array[currentPointer] == 0) {
-                int temp = array[currentPointer];
-                array[currentPointer] = array[leftPointer];
-                array[leftPointer] = temp;
-            } else if (array[currentPointer] == 2) {
-                int temp = array[currentPointer];
-                array[currentPointer] = array[rightPointer];
-                array[rightPointer] = temp;
-            } else {
-                currentPointer++;
+        while (mid <= high) {
+
+            if (nums[mid] == 0) {
+
+                int temp = nums[low];
+                nums[low] = nums[mid];
+                nums[mid] = temp;
+
+                low++;
+                mid++;
+
+            } else if (nums[mid] == 1) {
+
+                mid++;
+
+            } else { // nums[mid] == 2
+
+                int temp = nums[mid];
+                nums[mid] = nums[high];
+                nums[high] = temp;
+
+                high--;
             }
         }
-
     }
 
 }
