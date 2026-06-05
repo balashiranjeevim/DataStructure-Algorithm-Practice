@@ -36,8 +36,8 @@ public class KadanesAlgorithm {
         int currentSum = array[0];
         int maxSum = array[0];
 
-        for(int num : array){
-            currentSum = Math.max(num, currentSum+num);
+        for(int i=1; i<array.length; i++){
+            currentSum = Math.max(array[i], currentSum+array[i]);
             maxSum = Math.max(currentSum, maxSum);
         }
         return maxSum;
