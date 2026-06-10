@@ -37,41 +37,26 @@ import java.util.Arrays;
 public class RearrangeArrayElementsBySign {
 
     public static void main(String[] args) {
-        int[]  array = {2, 4, 5, -1, -3, -4};
+        int[]  array = {1, -1, -3, -4, 2, 3};
 
         System.out.println(Arrays.toString(rearrangeArray(array)));
     }
     public static int[] rearrangeArray(int[] nums) {
-        int size = nums.length;
-        int pointer1 = 0;
-        int pointer2 = 0;
+        
+        int postiveIndex = 0;
+        int negativeIndex = 1;
 
-        int i = 0;
+        int[] resultArray = new int[nums.length];
 
-        int[] resultArray = new int[size];
-
-        while(pointer1 < size && pointer2 < size){
-            while(nums[pointer1] < 0){
-                pointer1++;
+        for(int num : nums){
+            if(num>0){
+                resultArray[postiveIndex] = num;
+                postiveIndex += 2;
+            }else{
+                resultArray[negativeIndex] = num;
+                negativeIndex += 2;
             }
-            if(pointer1<size){
-                resultArray[i] = nums[pointer1];
-                i++;
-                pointer1++;
-            }
-            
-
-            while(nums[pointer2]>0){
-                pointer2++;
-            }
-            if(pointer2<size){
-                resultArray[i] = nums[pointer2];
-                i++;
-                pointer2++;
-            }
-            
         }
-
         return resultArray;
     }
     
