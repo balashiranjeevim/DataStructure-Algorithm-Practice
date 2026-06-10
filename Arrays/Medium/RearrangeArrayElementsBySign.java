@@ -44,19 +44,32 @@ public class RearrangeArrayElementsBySign {
     public static int[] rearrangeArray(int[] nums) {
         int size = nums.length;
         int pointer1 = 0;
-        int pointer2 = size/2 + 1;
+        int pointer2 = 0;
+
         int i = 0;
 
         int[] resultArray = new int[size];
 
-        while(pointer1<(size/2+1) && pointer2 < nums.length){
+        while(pointer1 < size && pointer2 < size){
+            while(nums[pointer1] < 0){
+                pointer1++;
+            }
+            if(pointer1<size){
+                resultArray[i] = nums[pointer1];
+                i++;
+                pointer1++;
+            }
+            
 
-            resultArray[i] = nums[pointer1];
-            i++;
-            pointer1++;
-            resultArray[i] = nums[pointer2];
-            i++;
-            pointer2++; 
+            while(nums[pointer2]>0){
+                pointer2++;
+            }
+            if(pointer2<size){
+                resultArray[i] = nums[pointer2];
+                i++;
+                pointer2++;
+            }
+            
         }
 
         return resultArray;
