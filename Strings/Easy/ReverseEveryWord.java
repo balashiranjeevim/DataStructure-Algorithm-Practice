@@ -33,7 +33,7 @@ public class ReverseEveryWord {
     public static void main(String[] args){
         String sentence = "welcome to the jungle";
 
-        String[] array = sentence.split(" ");
+        String[] array = sentence.trim().split("\\s+");
 
         int size = array.length;
 
