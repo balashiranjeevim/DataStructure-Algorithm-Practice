@@ -61,27 +61,80 @@ intersectVal == listA[skipA] == listB[skipB] if listA and listB intersect.
 
 package LinkedList.Easy;
 
+
 public class IntersectionofTwoLinkedLists {
-	public static class ListNode {
-	 public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+
+    // Node class
+    static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int val) {
+            this.val = val;
+            this.next = null;
+        }
+    }
+
+    // Find intersection
+    public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+
         ListNode pointer1 = headA;
         ListNode pointer2 = headB;
 
-        while(pointer1 !=  pointer2){
+        while (pointer1 != pointer2) {
 
-            if(pointer1 == null){
-                pointer1 = headB;
-            }
-            if(pointer2 == null){
-                pointer2 = headA;
-            }
-
-            if(pointer1 == pointer2){
-                return pointer1;
-            }
-            pointer1 = pointer1.next;
-            pointer2 = pointer2.next;
+            pointer1 = (pointer1 == null) ? headB : pointer1.next;
+            pointer2 = (pointer2 == null) ? headA : pointer2.next;
         }
+
         return pointer1;
+    }
+
+    public static void main(String[] args) {
+
+        /*
+             List A:
+             4 -> 1 \
+                    8 -> 4 -> 5
+             5 -> 6 -> 1 /
+
+             List B:
+             5 -> 6 -> 1 -> 8 -> 4 -> 5
+
+             The node 8 is the SAME node in memory.
+        */
+
+        // Common part
+        ListNode node8 = new ListNode(8);
+        ListNode node4 = new ListNode(4);
+        ListNode node5 = new ListNode(5);
+
+        node8.next = node4;
+        node4.next = node5;
+
+        // List A
+        ListNode headA = new ListNode(4);
+        ListNode nodeA1 = new ListNode(1);
+
+        headA.next = nodeA1;
+        nodeA1.next = node8;
+
+        // List B
+        ListNode headB = new ListNode(5);
+        ListNode nodeB6 = new ListNode(6);
+        ListNode nodeB1 = new ListNode(1);
+
+        headB.next = nodeB6;
+        nodeB6.next = nodeB1;
+        nodeB1.next = node8;
+
+        // Find intersection
+        ListNode intersection = getIntersectionNode(headA, headB);
+
+        if (intersection != null) {
+            System.out.println("Intersected at: " + intersection.val);
+        } else {
+            System.out.println("No intersection");
+        }
     }
 }
